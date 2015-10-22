@@ -56,9 +56,11 @@ namespace GraphExplorerMVC
                            AuthenticationResult result = authContext.AcquireTokenByAuthorizationCode(
                            code, new Uri(HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Path)), credential, graphResourceId);
 
+                           
+
                            //cache the token in session state
                            HttpContext.Current.Session[SettingsHelper.UserTokenCacheKey] = result;
-
+                           HttpContext.Current.Session[SettingsHelper.RefreshToken] = result.RefreshToken;
                            return Task.FromResult(0);
                        }
                     }

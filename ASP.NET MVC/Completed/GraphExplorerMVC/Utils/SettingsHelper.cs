@@ -14,6 +14,10 @@ namespace GraphExplorerMVC.Utils
             get { return "USER_TOKEN"; }
         }
 
+        public static string RefreshToken {
+            get { return "REFRESH_TOKEN"; }
+             }
+
         public static string ClientId
         {
             get { return ConfigurationManager.AppSettings["ida:ClientID"]; }
